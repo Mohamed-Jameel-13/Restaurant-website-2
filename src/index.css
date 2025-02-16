@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 0 0 0;
+    --color-secondary: 249 115 22;
+    --color-accent: 255 255 255;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    @apply bg-slate-950;
+  }
+
+  body {
+    @apply font-poppins antialiased text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-white/90 hover:text-orange-500 transition-colors duration-300;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-orange-500 transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-playfair font-bold text-white mb-8;
+  }
+
+  .section-subtitle {
+    @apply text-sm text-orange-500 uppercase tracking-[0.2em] mb-4 font-medium;
+  }
+}
+
+.parallax-bg {
+  @apply fixed inset-0 w-full h-full -z-10;
+  background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+              url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2074&auto=format&fit=crop') no-repeat center center;
+  background-size: cover;
+}
